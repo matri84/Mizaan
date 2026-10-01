@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0e6b6b">
+    <title>میزان | لیست خرید</title>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header class="app-header">
+        <div class="container app-header__inner">
+            <div class="app-logo" aria-hidden="true">م</div>
+            <div>
+                <h1 class="app-title">میزان</h1>
+                <p class="app-subtitle">لیست خرید، دقیق و مرتب</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container app-main">
+
+        <!-- فرم افزودن / ویرایش -->
+        <section class="panel" data-aos="fade-up" aria-labelledby="formTitle">
+            <div class="panel__head">
+                <h2 class="panel__title" id="formTitle">افزودن مورد جدید</h2>
+            </div>
+
+            <form id="itemForm" novalidate autocomplete="off">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label" for="productName">
+                            اسم محصول <span class="text-danger">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="productName"
+                            placeholder="مثلاً: شیر"
+                            maxlength="80"
+                        >
+                        <div class="invalid-feedback"></div>
+                    </div>
+
+                    <div class="col-6 col-md-3">
+                        <label class="form-label" for="productAmount">
+                            مقدار <span class="text-danger">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            inputmode="decimal"
+                            class="form-control"
+                            id="productAmount"
+                            placeholder="مثلاً: ۲"
+                        >
+                        <div class="invalid-feedback"></div>
+                    </div>
+
+                    <div class="col-6 col-md-3">
+                        <label class="form-label" for="productUnit">
+                            واحد <span class="text-danger">*</span>
+                        </label>
+                        <select id="productUnit" class="form-select">
+                            <option value="عدد" selected>عدد</option>
+                            <option value="لیتر">لیتر</option>
+                            <option value="کیلوگرم">کیلوگرم</option>
+                            <option value="گرم">گرم</option>
+                            <option value="بسته">بسته</option>
+                            <option value="شانه">شانه</option>
+                            <option value="جعبه">جعبه</option>
+                            <option value="سبد">سبد</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="submitButton" class="btn btn-brand">
+                        افزودن
+                    </button>
+                    <button type="button" id="cancelEditButton" class="btn btn-ghost d-none">
+                        لغو ویرایش
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- لیست -->
+        <section class="panel" data-aos="fade-up" data-aos-delay="80" aria-labelledby="listTitle">
+            <div class="panel__head panel__head--split">
+                <h2 class="panel__title" id="listTitle">لیست خرید</h2>
+                <span class="count-pill" id="itemsCount">۰ مورد</span>
+            </div>
+
+            <div id="itemsContainer" aria-live="polite"></div>
+
+            <div class="list-actions">
+                <button type="button" id="pdfTest" class="btn btn-brand" disabled>
+                    <i class="fa fa-file-pdf ms-2" aria-hidden="true"></i>
+                    <span id="pdfButtonText">ساخت فایل لیست خرید</span>
+                </button>
+                <button type="button" id="clearAllButton" class="btn btn-ghost-danger" disabled>
+                    <i class="fa fa-trash-can ms-2" aria-hidden="true"></i>
+                    پاک کردن همه
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <div class="toast-box" id="toastBox" role="status" aria-live="polite"></div>
+
+    <script src="assets/js/aos.js"></script>
+    <script src="assets/js/html2pdf.bundle.min.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
